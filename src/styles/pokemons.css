@@ -1,0 +1,31 @@
+.card {
+  width: 80%;
+  margin: 15px auto 0 ;
+  height: auto;
+  text-align: center;
+}
+
+.card-subtitle {
+  font-size: 12px;
+}
+
+.btn-success{
+  color: #fff;
+  background-color: #a0ca50;
+  border-color: #8bb53a;
+}
+.btn-success:hover{
+    color: #8bb53a;
+    background-color: #fff;
+    border-color: #a0ca50;
+}
+
+.col-md-6{
+  margin: 0;
+  padding: 0;
+}
+
+.btn-block {
+  width: 80%;
+  margin: 0 auto;
+}

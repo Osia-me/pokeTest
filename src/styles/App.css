@@ -1,0 +1,10 @@
+.App {
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  height: auto;
+  margin: 50px auto;
+  background-color: #c7e48f;
+  border-radius: 10px;
+  box-shadow: 0 14px 45px rgba(0, 0, 0, 0.22), 0 18px 45px rgba(0, 0, 0, 0.22);
+}
