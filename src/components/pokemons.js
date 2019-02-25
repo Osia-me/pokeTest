@@ -7,10 +7,10 @@ class Pokemons extends Component {
     return (
       <div className="pokemons">
         < div className='row'>
-        { this.props.list.map((poke) =>
+        { this.props.list.map((poke, i) =>
 
-          <div className='col-md-6'>
-            < Pokemon key={poke.id} poke={poke}/>
+          <div key={i} className='col-md-6'>
+            < Pokemon poke={poke}/>
             <button className="card-link btn btn-success btn-block" onClick={() => this.props.click(poke.id)} value={poke.id}> Show Evolution Chain of {poke.name}</button>
           </div>
         )}

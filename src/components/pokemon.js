@@ -11,8 +11,8 @@ class Pokemon extends Component {
                 <h5 className="card-title">{this.props.poke.name.toUpperCase()}</h5>
                 <div className="card-subtitle mb-2 text-muted">
                 <p>Other names:</p>
-                { this.props.poke.names.map((name) =>
-                    <span> {name.language.name}: {name.name}, </span>
+                { this.props.poke.names.map((name, i) =>
+                    <span key={i}> {name.language.name}: {name.name}, </span>
                 )}</div>
                 <p>
                   <span>Color: {this.props.poke.color.name}</span>
@@ -20,7 +20,7 @@ class Pokemon extends Component {
                   <span> | Shape: {this.props.poke.shape.name}</span>
 
                 </p>
-                
+
               </div>
             </div>
         </div>
