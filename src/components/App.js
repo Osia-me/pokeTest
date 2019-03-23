@@ -20,6 +20,7 @@ class App extends Component {
       }
     }
 
+//Fetch pokemon names and urls for additional information
   loadPokemons(){
   fetch('https://pokeapi.co/api/v2/pokemon-species')
     .then(res => res.json())
@@ -28,11 +29,13 @@ class App extends Component {
         isLoaded: true,
         names: json.results
       }, () => {
+        //fetch additional information
         this.loadPokemonAdditionalInfo()
       })
     })
   }
 
+//Fetch additional information to show it on the screen
   loadPokemonAdditionalInfo() {
     const { names } = this.state;
     const promises = names.map(
@@ -40,6 +43,7 @@ class App extends Component {
     .then(response => response.json())
   )
 
+//Promise all resolved results and save them to the pokemons array
   Promise.all(promises).then(results => {
     this.setState({
       pokemons: [...this.state.pokemons, ...results]
@@ -47,17 +51,19 @@ class App extends Component {
     })
   }
 
+//Toggle view for information to be displayed on the screen: evolution
   toggleView = (id) => {
     console.log(id);
     if(id){
       this.setState({
         showEvolution: true,
         isLoaded:false
+        //fetch pokemon by id
       }, this.loadPokemon(id))
     }
   }
 
-
+//Fetch pokemon by id for future evolution manipulations
   loadPokemon = (id) => {
     fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
       .then(res => res.json())
@@ -70,6 +76,7 @@ class App extends Component {
       })
     }
 
+//Fetch evolution for selected by ID pokemon
   loadEvolutionChain() {
     const evolutionPoke = this.state.pokemonByID;
     fetch(evolutionPoke.evolution_chain.url)
@@ -77,6 +84,7 @@ class App extends Component {
     .then(data => {
       this.setState({
         pokemonEvolutionData: data
+        //transform this data to more readable
       }, () => this.transformData())
     })
   }
