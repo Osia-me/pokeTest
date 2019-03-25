@@ -33,6 +33,7 @@ class App extends Component {
         this.loadPokemonAdditionalInfo()
       })
     })
+    .catch(err => console.log(err))
   }
 
 //Fetch additional information to show it on the screen
@@ -40,7 +41,7 @@ class App extends Component {
     const { names } = this.state;
     const promises = names.map(
     name => fetch(name.url)
-    .then(response => response.json())
+    .then(response => response.json()).catch(err => console.log(err))
   )
 
 //Promise all resolved results and save them to the pokemons array
@@ -74,6 +75,7 @@ class App extends Component {
           this.loadEvolutionChain()
         })
       })
+      .catch(err => console.log(err))
     }
 
 //Fetch evolution for selected by ID pokemon
@@ -87,6 +89,7 @@ class App extends Component {
         //transform this data to more readable
       }, () => this.transformData())
     })
+    .catch(err => console.log(err))
   }
 
   transformData(){
